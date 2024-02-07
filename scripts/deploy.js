@@ -1,12 +1,14 @@
 const hre = require("hardhat");
 
 async function main() {
-  const contextTest = await hre.ethers.getContractFactory("ContextTest");
-  const contextTestContract = await contextTest.deploy();
-  await contextTestContract.deployed();
-  console.log("ContextTest deployed to:", contextTestContract.address);
+
+  const ContextTest = await hre.ethers.getContractFactory("ContextTest");
+  const contextTest = await ContextTest.deploy();
+  console.log(contextTest);
+  console.log("Contract deployed to:", contextTest.address);
 }
+
 main().catch((error) => {
   console.error(error);
-  process.exitCode = 1;
+  process.exitCode =   1;
 });
